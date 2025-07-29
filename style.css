@@ -149,9 +149,9 @@ p {
 
 .pooh-corner {
     position: absolute;
-    bottom: 0px;
-    right: -190px;
-    width: 300px;
+    bottom: 190px;
+    right: 50px;
+    width: 70px;
     transform: rotate(5deg);
     z-index: 12;
     animation: bouncePoohCorner 2.5s infinite ease-in-out;
@@ -247,7 +247,7 @@ p {
     }
 
     .pooh-corner {
-        width: 250px;
+        width: 50px;
         bottom: 0px;
         right: -30px;
     }
@@ -292,7 +292,7 @@ p {
     }
 
     .pooh-corner {
-        width: 250px;
+        width: 50px;
         bottom: 0px;
         right: -20px;
     }
