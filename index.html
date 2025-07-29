@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Happy Birthday Satwik!</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+
+    <img src="balloons.png" class="balloons" style="left: 10%; animation-delay: 0s;">
+    <img src="balloons.png" class="balloons" style="left: 30%; animation-delay: 1.5s;">
+    <img src="balloons.png" class="balloons" style="left: 50%; animation-delay: 2s;">
+    <img src="balloons.png" class="balloons" style="left: 70%; animation-delay: 3.5s;">
+    <img src="balloons.png" class="balloons" style="left: 90%; animation-delay: 1s;">
+
+    <div class="card">
+        <img src="satwik.jpg" class="satwik-photo" alt="Satwik">
+        <p style="font-size: 0.9rem; color: #666;">Our birthday champ Satwik!</p>
+
+        <h1 class="gradient-text">🎂 Happy 9th Birthday Satwik 🎉</h1>
+        <p>You are invited to a fun birthday party!</p>
+        <p><strong><i class="fas fa-calendar-alt icon-margin"></i> Date:</strong> 7th August</p>
+        <p><strong><i class="fas fa-map-marker-alt icon-margin"></i> Venue:</strong> 
+           <a href="https://maps.app.goo.gl/gAcjdw5WWPna1fPS6" target="_blank" class="map-link">  Charcoal Kitchen, Patia Station Road, Bhubaneswar
+    </a>
+</p>
+        <p><strong><i class="fas fa-clock icon-margin"></i> Time:</strong> 7:30 PM </p>
+        <p class="footer">Let’s have some cake and games! 🎈</p>
+
+        <img src="pooh.png" class="pooh-corner" alt="Pooh Peeking">
+    </div>
+
+    <script>
+        // Confetti script
+        function fireFunConfetti() {
+            const randomX = Math.random();
+            confetti({
+                particleCount: 250,
+                spread: 150,
+                startVelocity: 55,
+                origin: { y: 0.6, x: randomX },
+                colors: ['#ff007f', '#ffc72c', '#00e067', '#00bfff', '#8a2be2'],
+                shapes: ['circle', 'square', 'star', 'heart'],
+                scalar: 0.9
+            });
+        }
+
+        // Fire confetti every 2.5 seconds
+        setInterval(fireFunConfetti, 2500);
+
+        // Fire a big burst on page load for an immediate wow effect
+        setTimeout(fireFunConfetti, 500);
+    </script>
+</body>
+</html>

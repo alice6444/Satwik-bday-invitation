@@ -1,0 +1,303 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Fredoka One', cursive, sans-serif;
+    background: linear-gradient(to bottom, #a2d4f7, #d0e9ff);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Floating Stars/Sparkles Background - NEW ADDITION */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 0; /* Behind everything */
+    pointer-events: none; /* Allows clicks/hovers on elements beneath */
+    animation: floating-stars 25s linear infinite; /* Increased duration for slower float */
+    /* This creates the stars/sparkles using box-shadow */
+    box-shadow:
+        0 0 4px 1px rgba(255, 255, 255, 0.8), /* Center glow */
+        100px 50px 3px 0 rgba(255, 255, 255, 0.7),
+        250px 120px 2px 0 rgba(255, 255, 255, 0.9),
+        400px 20px 3px 0 rgba(255, 255, 255, 0.6),
+        550px 80px 4px 0 rgba(255, 255, 255, 0.8),
+        700px 150px 2px 0 rgba(255, 255, 255, 0.7),
+        850px 70px 3px 0 rgba(255, 255, 255, 0.9),
+        1000px 200px 2px 0 rgba(255, 255, 255, 0.6),
+        /* Add more as needed to fill the screen effectively, adjust coordinates */
+        50px 300px 3px 0 rgba(255, 255, 255, 0.7),
+        200px 450px 2px 0 rgba(255, 255, 255, 0.9),
+        350px 280px 4px 0 rgba(255, 255, 255, 0.8),
+        500px 500px 2px 0 rgba(255, 255, 255, 0.6),
+        650px 380px 3px 0 rgba(255, 255, 255, 0.7),
+        800px 550px 2px 0 rgba(255, 255, 255, 0.9),
+        950px 330px 4px 0 rgba(255, 255, 255, 0.8),
+        1100px 480px 3px 0 rgba(255, 255, 255, 0.6);
+}
+
+@keyframes floating-stars {
+    0% { transform: translateY(0); opacity: 0.6; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+
+.card {
+    background: none;
+    box-shadow: none;
+    width: 90%;
+    max-width: 600px;
+    margin-top: 50px;
+    padding: 30px;
+    position: relative;
+    text-align: center;
+    z-index: 10;
+    box-sizing: border-box;
+    border: 5px solid transparent;
+    border-image: linear-gradient(45deg, #ff69b4, #ffb347, #a8e063, #66d9ef, #be93e4);
+    border-image-slice: 1;
+    animation: border-dance 4s linear infinite, card-fade-in 1s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes border-dance {
+    0% { border-image-source: linear-gradient(45deg, #ff69b4, #ffb347, #a8e063, #66d9ef, #be93e4); }
+    25% { border-image-source: linear-gradient(90deg, #be93e4, #ff69b4, #ffb347, #a8e063, #66d9ef); }
+    50% { border-image-source: linear-gradient(135deg, #66d9ef, #be93e4, #ff69b4, #ffb347, #a8e063); }
+    75% { border-image-source: linear-gradient(180deg, #a8e063, #66d9ef, #be93e4, #ff69b4, #ffb347); }
+    100% { border-image-source: linear-gradient(45deg, #ff69b4, #ffb347, #a8e063, #66d9ef, #be93e4); }
+}
+
+@keyframes card-fade-in {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    animation: bounce-rotate 2s infinite;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    letter-spacing: 1px;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #ff4081, #ffd700, #39ff14, #00bfff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.card p:not(.footer):hover {
+    transform: scale(1.03);
+    color: #d81b60;
+    cursor: pointer;
+}
+
+
+.footer {
+    margin-top: 25px;
+    font-weight: bold;
+    color: #d81b60;
+    animation: blink 1.5s infinite;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+.icon-margin {
+    margin-right: 8px;
+    color: #ff4081;
+}
+
+.satwik-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #ff69b4;
+    margin: -100px auto 20px auto;
+    display: block;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.6);
+    animation: pop-in 1s ease-in-out forwards, photo-glow 2s infinite alternate;
+}
+
+@keyframes photo-glow {
+    0% { box-shadow: 0 0 15px rgba(255, 105, 180, 0.6); border-color: #ff69b4; }
+    100% { box-shadow: 0 0 30px rgba(255, 105, 180, 1); border-color: #ff007f; }
+}
+
+
+.pooh-corner {
+    position: absolute;
+    bottom: 0px;
+    right: -190px;
+    width: 300px;
+    transform: rotate(5deg);
+    z-index: 12;
+    animation: bouncePoohCorner 2.5s infinite ease-in-out;
+}
+
+@keyframes bouncePoohCorner {
+    0%, 100% {
+        transform: rotate(5deg) translateY(0);
+    }
+    50% {
+        transform: rotate(5deg) translateY(-10px);
+    }
+}
+
+.balloons {
+    position: absolute;
+    bottom: -150px;
+    width: 100px;
+    animation: floatUp 10s linear infinite;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-150vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+@keyframes bounce-rotate {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-8px) rotate(-1deg); }
+    50% { transform: translateY(-15px) rotate(0deg); }
+    75% { transform: translateY(-8px) rotate(1deg); }
+}
+
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+@keyframes pop-in {
+    0% { transform: scale(0.2); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+    }
+    /* Adjusted for new floating stars */
+    body::before {
+        box-shadow:
+            0 0 3px 0.5px rgba(255, 255, 255, 0.8),
+            70px 40px 2px 0 rgba(255, 255, 255, 0.7),
+            180px 90px 1.5px 0 rgba(255, 255, 255, 0.9),
+            290px 15px 2px 0 rgba(255, 255, 255, 0.6),
+            400px 60px 3px 0 rgba(255, 255, 255, 0.8),
+            510px 100px 1.5px 0 rgba(255, 255, 255, 0.7),
+            620px 50px 2px 0 rgba(255, 255, 255, 0.9);
+    }
+
+
+    .card {
+        width: 95%;
+        padding: 20px;
+        margin: 30px auto;
+        margin-top: 50px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .satwik-photo {
+        width: 120px;
+        height: 120px;
+        margin-top: -80px;
+    }
+
+    .pooh-corner {
+        width: 250px;
+        bottom: 0px;
+        right: -30px;
+    }
+
+    .balloons {
+        width: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        align-items: flex-start;
+    }
+    /* Adjusted for new floating stars */
+    body::before {
+        box-shadow:
+            0 0 2px 0.5px rgba(255, 255, 255, 0.8),
+            50px 30px 1px 0 rgba(255, 255, 255, 0.7),
+            120px 60px 1px 0 rgba(255, 255, 255, 0.9),
+            180px 10px 1.5px 0 rgba(255, 255, 255, 0.6),
+            250px 40px 2px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .card {
+        padding: 15px;
+        margin: 20px auto;
+        margin-top: 30px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .satwik-photo {
+        width: 100px;
+        height: 100px;
+        margin-top: -60px;
+    }
+
+    .pooh-corner {
+        width: 250px;
+        bottom: 0px;
+        right: -20px;
+    }
+
+    .balloons {
+        width: 50px;
+    }
+}
